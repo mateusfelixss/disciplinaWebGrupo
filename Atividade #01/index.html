@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do List APP</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+<!--	<type="text/java" src="javascript.js">	-->
+	<script src="javascript.js"></script>
+
+</head>
+<body>
+	
+	<h1>To Do List</h1>
+	<div class="instrucion">
+		<ul>
+			<li>Adicione o título da atividade na caixa de texto para inserir novas atividades. </li> 
+			<li>Clique no item da atividade para marcá-la como concluída.</li>
+			<li>Clique no X para excluir a atividade.</li>
+		</ul>
+	</div>
+	
+	<div class="addAtv">
+		<input  onclick="chanceBackGround()" ondblclick="chanceBackGroundOriginal()" type="texto" name="newatv" id="nameAtv">
+		<button onclick="addAtividade()">Adicionar</button>
+
+	<!--	<type="text/java">
+			function createTesk() {
+				alert(document.getElementById("nameAtv").innerText()
+			}
+		</>
+	-->	
+	</div>
+
+	<div class="listAtv">
+		<p id="atv"></p>
+
+	</div>
+</body>
+</html>
+
