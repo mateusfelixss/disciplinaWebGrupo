@@ -26,6 +26,13 @@ div.addAtv{
 	margin-right: 0.5%;
 }
 
+div.listAtv{
+	position: relative;
+	margin-left: 25%;
+	margin-right: 25%;
+	background-color: #F24130;
+}
+
 input{
 	width: 60%;
 }

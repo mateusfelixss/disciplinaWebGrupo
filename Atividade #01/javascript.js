@@ -8,10 +8,25 @@ function chanceBackGroundOriginal(){
 }
 
 
+// Essa funcao add o que o usuario colocar como atvidade em um array
 var listaAtividade = new Array();
-
 function addAtividade(){
-    document.getElementById("atv").listaAtividade.push(value)
+    listaAtividade.push(document.getElementById("nameAtv").value)
 }
 
+
+//essa função vai reconhecer quando o usuario pressionar a tecla "enter" e vai add uma nova tarefa 
+function tecla(){
+    if(event.keyCode === 13){
+        alert("tecla enter foi pressionada e nova atividade add ao Array") //isso aqui é so teste, pode ser retirado depois
+        addAtividade()
+    }
+}
+
+//essa funcao aqui o Gabs fez por algum motivo que eu nao sei.
+function createTesk() {
+    alert(document.getElementById("nameAtv").value);
+}
+
+//isso aqui é só para ver o que tem no array pelo console
 console.log(listaAtividade)
