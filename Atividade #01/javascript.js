@@ -8,8 +8,16 @@ function chanceBackGroundOriginal(){
 }
 
 var removeTodo = function(){
-	var id = this.getAttribute('id');
-	listaAtividade.splice(id, 1);
+
+    var id = this.getAttribute('id');
+    listaAtividade.splice(id,1);
+    
+
+    var listItem=this.parentNode;
+    var ul=listItem.parentNode;    
+    //Remove the parent list item from the ul.
+    
+    ul.removeChild(listItem);
 
 }
 
@@ -22,7 +30,7 @@ function addAtividade(){
     
     var html = '<ul>'; // Criamos uma variável 'html' que irá concatenando a nossa estrutura HTML.
     listaAtividade.forEach(function(elemento, index){ // Criamos um forEach para iterar todos os elementos do nosso Array.
-        html += '<li> 📌 ' + elemento + ' ' +'<button class="remove" id="'+ index +'" onclick="atualiza()">X</button></li>'; // Novamente utilizamos a variável 'html' para concatenar nosso HTML passando o 'elemento' que referencia os itens pertencentes os todos. 'index' representa nosso index dentro do array.
+        html += '<li> 📌  ' + elemento + ' ' +'<button class="remove" id="remove"'+ index +'>X</button></li>'; // Novamente utilizamos a variável 'html' para concatenar nosso HTML passando o 'elemento' que referencia os itens pertencentes os todos. 'index' representa nosso index dentro do array.
     });
 
     html += '</ul>'; // Fechamos a concatenação.
@@ -37,7 +45,11 @@ function addAtividade(){
 }
 
 function atualiza(){
+    console.log("Complete Task...");
 	
+	//Append the task list item to the #completed-tasks
+	var listItem=this.parentNode;
+	completedTasksHolder.appendChild(listItem);
 }	
 //essa função vai reconhecer quando o usuario pressionar a tecla "enter" e vai add uma nova tarefa 
 function tecla(){
