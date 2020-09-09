@@ -1,81 +1,57 @@
-//essa funcao faz com que a cor de background da atividade que foi completa mude para verde.
-function chanceBackGround(){
-    document.getElementById("nameAtv").style.backgroundColor = "#02732A"
-}
-//caso o usuario queira desmarcar uma atividade que ele tinha completado, essa funcao muda a cor de volta a original
-function chanceBackGroundOriginal(){
-    document.getElementById("nameAtv").style.backgroundColor = "#FFFFFF"
-}
+// variaveis criadas para armazenar os valores obtidos do input e do button
+var input = document.getElementById("nameAtv");
+var enterButton = document.getElementById("sendAtv");
+var ul = document.querySelector("ul");
+var item = document.getElementsByTagName("li");
 
-var removeTodo = function(){
+// função que retorna o tamanho do input
+function inputLength(){
+	return input.value.length;
+} 
 
-    var id = this.getAttribute('id');
-    listaAtividade.splice(id,1);
-    
+// função para criar uma atividade na lista
+function addNewAtv() {
+	// cria um li e coloca o valor da váriavel input no li.
+	var li = document.createElement("li"); 
+	li.appendChild(document.createTextNode(input.value)); 
+	ul.appendChild(li); //adiciona o li ao ul
+	input.value = ""; 
 
-    var listItem=this.parentNode;
-    var ul=listItem.parentNode;    
-    //Remove the parent list item from the ul.
-    
-    ul.removeChild(listItem);
 
-}
+	// função responsável por marcar item da lista como concluído.
+	function checked() {
+		li.classList.toggle("done");
+	}
 
-// Essa funcao add o que o usuario colocar como atvidade em um array
-var listaAtividade = new Array();
-function addAtividade(){
-    listaAtividade.push(document.getElementById("nameAtv").value)
+	li.addEventListener("click",checked);
 
-    document.getElementById("nameAtv").value = ''; // Retorna para vazio o input após um item ser inserido.
-    
-    var html = '<ul>'; // Criamos uma variável 'html' que irá concatenando a nossa estrutura HTML.
-    listaAtividade.forEach(function(elemento, index){ // Criamos um forEach para iterar todos os elementos do nosso Array.
-        html += '<li> 📌  ' + elemento + ' ' +'<button class="remove" id="remove"'+ index +'>X</button></li>'; // Novamente utilizamos a variável 'html' para concatenar nosso HTML passando o 'elemento' que referencia os itens pertencentes os todos. 'index' representa nosso index dentro do array.
-    });
 
-    html += '</ul>'; // Fechamos a concatenação.
-    document.getElementById('listAtv').innerHTML = html; // Inserimos o conteúdo da variável 'html' dentro da 'div' que contém o id 'listAtv'. O innerHTML serve justamente para inserir novos conteúdos.
-    
-    var id = 0;
-    var buttons = document.getElementsByClassName('remove'); // Pegamos todos os elementos do DOM que possuem a class 'remove' e armazenamos na variável 'buttons'.
-    for (var i=0; i < buttons.length; i++){ // Iteramos nossos elementos e adicionamos para cada elemento com a class 'remove' o addEventListener conectado com o evento 'click' e o callback da função 'removeTodo'.
-        buttons[i].addEventListener('click', removeTodo);
-   
- 	};
+	// parte de deletar item da lista de atividades
+	var deleteButton = document.createElement("button"); // cria botão de deletar
+	deleteButton.appendChild(document.createTextNode("X"));
+	li.appendChild(deleteButton); // adiciona o botão de deletar ao item da lista
+	deleteButton.addEventListener("click", deleteItem); // cria um evento ao apertar o botão
+
+	// função responsável por deletar item da lista
+	function deleteItem(){
+		li.classList.add("delete")
+	}
 }
 
-function atualiza(){
-    console.log("Complete Task...");
-	
-	//Append the task list item to the #completed-tasks
-	var listItem=this.parentNode;
-	completedTasksHolder.appendChild(listItem);
-}	
-//essa função vai reconhecer quando o usuario pressionar a tecla "enter" e vai add uma nova tarefa 
-function tecla(){
-    if(event.keyCode === 13){
-        alert("tecla enter foi pressionada e nova atividade add ao Array") //isso aqui é so teste, pode ser retirado depois
-        addAtividade()
-    }
+// esta função não aceita espaços em branco como novas atividades na lista
+function noEmptyAtv(){
+	if (inputLength() > 0) { 
+		addNewAtv();
+	}
 }
 
-//essa funcao aqui o Gabs fez por algum motivo que eu nao sei. Robi:KKKKK
-function createTesk() {
-    alert(document.getElementById("nameAtv").value);
+// função para adicionar atividade ao apertar 'enter'
+function key(event) {
+	if (inputLength() > 0 && event.which ===13) { 
+		addNewAtv();
+	} 
 }
 
-//isso aqui é só para ver o que tem no array pelo console
-console.log(listaAtividade)
-
-/*
-PARTE DE SUBSTITUIR OS NÓS DA LISTA
-var item = document.getElementById("listAtv")
-		//item.replaceChild(item.childNodes[1], item.childNodes[0]);
-		if (item) {
-	    // replace it
-	    item.replaceChild(item, item.childNodes[id]);
-	  } else {
-	    // otherwise append it to the end of the list
-	    list.append(item);
-	  }
-*/
+// eventos criados para ao teclar enter adicionar nova atividade ou não adicionar espaço em branco
+input.addEventListener("keypress", key);
+enterButton.addEventListener("click",noEmptyAtv);    
