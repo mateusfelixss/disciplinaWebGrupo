@@ -1,45 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>To Do List APP</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-<!--	<type="text/java" src="javascript.js">	-->
-	<script src="javascript.js"></script>
+    <head>
+        <title>To Do List</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="script.js"></script>
+       
+    </head>
 
-</head>
-<body>
-	
-	<h1>To Do List</h1>
-	<div class="instrucion">
-		<ul>
-			<li>Adicione o título da atividade na caixa de texto para inserir novas atividades. </li> 
-			<li>Clique no item da atividade para marcá-la como concluída.</li>
-			<li>Clique no X para excluir a atividade.</li>
-		</ul>
-	</div>
-	
-	<div class="addAtv">
-	<!-- dentro desse input esta os eventos que reconhecem se a tecla "enter" foi pressionada.
-		 e provisoriamente, para teste, esse input tbm reconhece quando é dado um clique ou duplo clique dentro dele
-	-->
-		<input onkeydown="tecla()" onclick="chanceBackGround()" ondblclick="chanceBackGroundOriginal()" type="texto" name="newatv" id="nameAtv">
-		<button onclick="addAtividade()">Adicionar</button>
+    <body>
+        <div class="title">
+            <h1>To Do List</h1>
+        </div>
 
-	<!--	<type="text/java">
-			function createTesk() {
-				alert(document.getElementById("nameAtv").innerText()
-			}
-		</>
-	-->	
-	</div>
+        <div class="instructions">
+            <p>Adicione o título da atividade na caixa de texto para inserir novas atividades.</p>
+            <p>Clique no item da atividade para marcá-la como concluída.</p>
+            <p>Clique no 'X' para excluir a atividade.</p>
+        </div>
 
-	<div class="listAtv" id="listAtv">
-		<p id="atv">A lista de atividade deverão aparecer aqui. Essa estilização será alterada, deixei desse 
-			jeito so para poder ver
-		</p>
-	</div>
-</body>
+        <div class="insertAtv">
+            <input id="nameAtv" type="text" placeholder="nome da atividade..." maxlength="70"/>
+            <button id="sendAtv">Adicionar</button>
+        </div>
+
+        <div class="listItems">
+            <ul class="items"></ul>
+        </div>
+
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+
 </html>
-
