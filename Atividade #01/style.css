@@ -1,65 +1,85 @@
-body{
-	background-color: #3D6AF2;
+body {
+	background: #2589BD;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
 }
 
-h1{
-	font-family: sans-serif;
+h1 {
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: 800;
+}
+
+p {
+	font-weight: 300;
+	text-transform: bold;
+	color: #ffffff;
+}
+
+.instructions{
+	width: 600px;
+	padding: 5px;
+	background: #FF9D47;
+	margin-left: 350px;
+	margin-bottom: 20px;
+}
+
+#sendAtv {
+	border: none;
+	padding: 5px 15px;
+	border-radius: 5px;
 	color: white;
-	position: center;
-	padding: 20px;
-	margin-left: 41%;
+	background-color: #30638E;
+	font-weight: normal;
 }
 
-div.instrucion{
-	background: #D8D8D8;
-	font-family: sans-serif;
-	color:#585858;
-	position: relative;
-	padding: 20px;
-	margin-left: 25%;
-	margin-right: 25%;
+ul {
+	text-align: left;
+	margin-top: 20px;
 }
 
-div.addAtv{
-	padding: 20px;
-	margin-left: 23.5%;
-	margin-right: 0.5%;
+li {
+	list-style: none;
+	padding: 10px 20px;
+	color: #ffffff;
+	text-transform: capitalize;
+	font-weight: 600;
+	border: 2px solid #025f70;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	margin-right: 40px;
+	background: #30638E;
 }
 
-div.listAtv{
-	position: relative;
-	margin-left: 25%;
-	margin-right: 25%;
-	background-color: #F24130;
+li > button {
+	font-weight: normal;
+	background: #A30000;
+	border: 5px;
+	float: right;
+	color: white;
+	font-weight: 800;
 }
 
-input{
-	width: 60%;
+input {
+	border-radius: 5px;
+	min-width: 65%;
+	padding: 5px;
+	border: none;
 }
 
-button{
-	background: #D8D8D8;
+.done {
+	background: #629460 !important;
+	color: white;
 }
 
+.delete {
+	display: none;
+}
 
-/* Isso é só uma paleta de cores que pesquisei para usarmos 
-/* Color Theme Swatches in Hex */
-.Collections-1-hex { color: #0540F2; }
-.Collections-2-hex { color: #3D6AF2; }
-.Collections-3-hex { color: #02732A; }
-.Collections-4-hex { color: #F2E205; }
-.Collections-5-hex { color: #F24130; }
-
-/* Color Theme Swatches in RGBA */
-.Collections-1-rgba { color: rgba(4, 64, 242, 1); }
-.Collections-2-rgba { color: rgba(60, 105, 242, 1); }
-.Collections-3-rgba { color: rgba(2, 114, 41, 1); }
-.Collections-4-rgba { color: rgba(242, 226, 4, 1); }
-.Collections-5-rgba { color: rgba(242, 64, 48, 1); }
-
-/* Color Theme Swatches in HSLA */
-.Collections-1-hsla { color: hsla(225, 96, 48, 1); }
-.Collections-2-hsla { color: hsla(225, 87, 59, 1); }
-.Collections-3-hsla { color: hsla(140, 96, 22, 1); }
-.Collections-4-hsla { color: hsla(56, 96, 48, 1); }
-.Collections-5-hsla { color: hsla(5, 88, 56, 1); }
+/* Paleta de cores usada:
+#629460,
+#a30000,
+#ff9d47,
+#2589bd,
+#30638e;
+*/
