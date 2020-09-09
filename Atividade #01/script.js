@@ -30,7 +30,7 @@ function addNewAtv() {
 	var deleteButton = document.createElement("button"); // cria botão de deletar
 	deleteButton.appendChild(document.createTextNode("X"));
 	li.appendChild(deleteButton); // adiciona o botão de deletar ao item da lista
-	deleteButton.addEventListener("click", deleteItem); // cria um evento ao apertar o botão
+	deleteButton.addEventListener("click", deleteItem); // se evento de click ocorrer chama deleteItem
 
 	// função responsável por deletar item da lista
 	function deleteItem(){
